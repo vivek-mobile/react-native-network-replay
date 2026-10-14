@@ -1,4 +1,3 @@
-
 import React, { useMemo, useState } from 'react';
 import {
   ActivityIndicator,
@@ -35,10 +34,7 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [lastResponse, setLastResponse] = useState<string>('');
 
-  const replay = useMemo(
-    () => createNetworkReplay({ mode: 'mock' }),
-    [],
-  );
+  const replay = useMemo(() => createNetworkReplay({ mode: 'mock' }), []);
 
   const api = useMemo(
     () =>
@@ -46,7 +42,7 @@ export default function App() {
         baseURL: BASE_URL,
         adapter: createNetworkReplayAxiosAdapter(replay),
       }),
-    [replay],
+    [replay]
   );
 
   // Register mock data once.
@@ -82,15 +78,10 @@ export default function App() {
 
       setProducts(response.data.products);
       setLastResponse(
-        `HTTP ${response.status}\n${JSON.stringify(
-          response.data,
-          null,
-          2,
-        )}`,
+        `HTTP ${response.status}\n${JSON.stringify(response.data, null, 2)}`
       );
     } catch (e) {
-      const message =
-        e instanceof Error ? e.message : 'Something went wrong';
+      const message = e instanceof Error ? e.message : 'Something went wrong';
 
       setError(message);
     } finally {
@@ -111,10 +102,7 @@ export default function App() {
 
           <View style={styles.modeRow}>
             <TouchableOpacity
-              style={[
-                styles.modeButton,
-                mode === 'mock' && styles.activeMode,
-              ]}
+              style={[styles.modeButton, mode === 'mock' && styles.activeMode]}
               onPress={() => changeMode('mock')}
             >
               <Text
@@ -128,10 +116,7 @@ export default function App() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[
-                styles.modeButton,
-                mode === 'live' && styles.activeMode,
-              ]}
+              style={[styles.modeButton, mode === 'live' && styles.activeMode]}
               onPress={() => changeMode('live')}
             >
               <Text
@@ -171,11 +156,9 @@ export default function App() {
           </View>
         )}
 
-        <Text style={styles.sectionHeading}>
-          Products ({products.length})
-        </Text>
+        <Text style={styles.sectionHeading}>Products ({products.length})</Text>
 
-        {products.map(product => (
+        {products.map((product) => (
           <View key={product.id} style={styles.productCard}>
             <View style={styles.productIcon}>
               <Text style={styles.productIconText}>P</Text>
@@ -201,9 +184,7 @@ export default function App() {
           </View>
         )}
 
-        <Text style={styles.footer}>
-          React Native Network Replay · MVP
-        </Text>
+        <Text style={styles.footer}>React Native Network Replay · MVP</Text>
       </ScrollView>
     </SafeAreaView>
   );
