@@ -2,7 +2,7 @@
   "name": "react-native-network-replay",
   "version": "0.1.0",
   "description": "Mock APIs, build UI before the backend, and record & replay network requests in React Native.",
-   "main": "./lib/module/index.js",
+  "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
@@ -166,5 +166,8 @@
       "release-it"
     ],
     "version": "0.63.1"
+  },
+  "dependencies": {
+    "axios": "^1.20.0"
   }
 }

@@ -10,3 +10,5 @@ export type {
   NetworkReplayMode,
   ResolvedMockResponse,
 } from './types';
+
+export { createNetworkReplayAxiosAdapter } from './adapters/axios';
