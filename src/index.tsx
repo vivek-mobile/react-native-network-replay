@@ -1,1 +1,12 @@
-export { multiply } from './multiply';
+export { NetworkReplay, createNetworkReplay } from './NetworkReplay';
+
+export { MockRegistry } from './MockRegistry';
+
+export type {
+  HttpMethod,
+  MockRequest,
+  MockResponse,
+  NetworkReplayConfig,
+  NetworkReplayMode,
+  ResolvedMockResponse,
+} from './types';

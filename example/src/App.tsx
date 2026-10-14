@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-network-replay';
 
-const result = multiply(3, 7);
+const result = 18;
 
 export default function App() {
   return (
